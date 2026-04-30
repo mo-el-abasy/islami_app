@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/ui/home/home_screen.dart';
+import 'package:islami_app/ui/home/IntrodacctionScreen.dart';
+import 'package:islami_app/ui/home/homescreen.dart';
 import 'package:islami_app/ui/home/splach_screen.dart';
+import 'package:islami_app/utils/AppThem.dart';
 import 'package:islami_app/utils/App_route.dart';
 
 void main() {
@@ -17,9 +19,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: App_route.splashscreen,
       routes: {
-        App_route.homeroutename: (context) => home_screen(),
+        App_route.Introdacctionscreen: (context) => Introdacctionscreen(),
         App_route.splashscreen: (context) => SplashScreen(),
+        App_route.homescreen: (context) => homescreen(),
       },
+      darkTheme: AppThem.derkthem,
+      themeMode: ThemeMode.dark,
     );
   }
 }
