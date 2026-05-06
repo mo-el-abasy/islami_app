@@ -15,4 +15,5 @@ class Appassets {
   static const String radiobg = "assets/images/radiobg.png";
   static const String hadethbg = "assets/images/hadethbg.png";
   static const String timebg = "assets/images/timebg.png";
+  static const String iconsearch = "assets/images/iconsearch.png";
 }

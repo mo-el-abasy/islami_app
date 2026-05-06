@@ -31,6 +31,8 @@ class _homescreenState extends State<homescreen> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Stack(children: [
       Image.asset(
         background[Selectindex],
@@ -42,7 +44,14 @@ class _homescreenState extends State<homescreen> {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Image.asset(Appassets.logobg),
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.03),
+                child: Image.asset(
+                  Appassets.logobg,
+                  height: height * 0.15,
+                  width: width * 0.69,
+                ),
+              ),
               Expanded(child: Tabs[Selectindex])
             ],
           ),
