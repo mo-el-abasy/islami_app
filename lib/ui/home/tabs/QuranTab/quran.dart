@@ -13,6 +13,7 @@ class qurantab extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: height * 0.03),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextField(
             decoration: InputDecoration(
@@ -24,6 +25,48 @@ class qurantab extends StatelessWidget {
             ),
             cursorColor: App_Color.primarycolor,
           ),
+          SizedBox(height: height * 0.03),
+          Text(
+            "Most Recently ",
+            style: AppStyle.bold16white,
+          ),
+          SizedBox(
+            height: height * 0.18,
+            child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: App_Color.primarycolor,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "Al-Anbiya",
+                              style: AppStyle.bold24black,
+                            ),
+                            Text(
+                              "الأنبياء",
+                              style: AppStyle.bold24black,
+                            ),
+                            Text(
+                              "112 Verses ",
+                              style: AppStyle.bold16black,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) =>
+                    SizedBox(width: width * 0.02),
+                itemCount: 10),
+          ),
+          Image.asset(Appassets.iconsearch)
         ],
       ),
     );

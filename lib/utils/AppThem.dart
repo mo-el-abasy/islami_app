@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/utils/AppStyle.dart';
 import 'package:islami_app/utils/App_color.dart';
 
 class AppThem {
@@ -9,6 +8,12 @@ class AppThem {
       selectedItemColor: App_Color.whitecolor,
       unselectedItemColor: App_Color.blackcolor,
     ),
-    textTheme: TextTheme(headlineLarge: AppStyle.bold16white),
+    textTheme: TextTheme(
+      headlineLarge: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        color: App_Color.whitecolor,
+      ),
+    ),
   );
 }
