@@ -16,4 +16,6 @@ class Appassets {
   static const String hadethbg = "assets/images/hadethbg.png";
   static const String timebg = "assets/images/timebg.png";
   static const String iconsearch = "assets/images/iconsearch.png";
+  static const String mostrecently = "assets/images/mostrecently.png";
+  static const String suraitem = "assets/images/suraitem.png";
 }
