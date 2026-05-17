@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/ui/home/IntrodacctionScreen.dart';
 import 'package:islami_app/ui/home/homescreen.dart';
 import 'package:islami_app/ui/home/splach_screen.dart';
+import 'package:islami_app/ui/home/tabs/QuranTab/SuraDetailsScreen.dart';
 import 'package:islami_app/utils/AppThem.dart';
 import 'package:islami_app/utils/App_route.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         App_route.Introdacctionscreen: (context) => Introdacctionscreen(),
         App_route.splashscreen: (context) => SplashScreen(),
         App_route.homescreen: (context) => homescreen(),
+        App_route.Suradetailsscreen: (context) => Suradetailsscreen(),
       },
       darkTheme: AppThem.derkthem,
       themeMode: ThemeMode.dark,

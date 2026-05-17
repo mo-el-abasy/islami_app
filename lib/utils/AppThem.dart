@@ -8,12 +8,19 @@ class AppThem {
       selectedItemColor: App_Color.whitecolor,
       unselectedItemColor: App_Color.blackcolor,
     ),
-    textTheme: TextTheme(
-      headlineLarge: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: App_Color.whitecolor,
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      backgroundColor: App_Color.blackbgcolor,
+      iconTheme: IconThemeData(
+        color: App_Color.primarycolor,
       ),
     ),
+    // textTheme: TextTheme(
+    // headlineLarge: TextStyle(
+    //  fontSize: 16,
+    //   fontWeight: FontWeight.bold,
+    //   color: App_Color.whitecolor,
+    //  ),
+    //  ),
   );
 }

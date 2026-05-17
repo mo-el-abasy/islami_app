@@ -18,4 +18,5 @@ class Appassets {
   static const String iconsearch = "assets/images/iconsearch.png";
   static const String mostrecently = "assets/images/mostrecently.png";
   static const String suraitem = "assets/images/suraitem.png";
+  static const String background = "assets/images/background.png";
 }
