@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/provider/most_recent_provider.dart';
 import 'package:islami_app/ui/home/tabs/QuranTab/quranresorce.dart';
 import 'package:islami_app/ui/home/tabs/QuranTab/suracontent.dart';
 import 'package:islami_app/utils/AppStyle.dart';
 import 'package:islami_app/utils/App_color.dart';
 import 'package:islami_app/utils/Appassets.dart';
+import 'package:provider/provider.dart';
 
 class Suradetailsscreen extends StatefulWidget {
   Suradetailsscreen({super.key});
@@ -15,12 +17,21 @@ class Suradetailsscreen extends StatefulWidget {
 
 class _SuradetailsscreenState extends State<Suradetailsscreen> {
   List<String> vers = [];
+  late mostRecentPorvider MostRcentProvider;
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+
+    MostRcentProvider.readMostRecentList();
+  }
 
   @override
   Widget build(BuildContext context) {
     int index = ModalRoute.of(context)!.settings.arguments as int;
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    MostRcentProvider = Provider.of<mostRecentPorvider>(context);
     if (vers.isEmpty) {
       LoadSuraFile(index);
     }
@@ -85,6 +96,7 @@ class _SuradetailsscreenState extends State<Suradetailsscreen> {
         await rootBundle.loadString('assets/files/quran/${index + 1}.txt');
     List<String> suraline = filecontent.split('\n');
     setState(() {
+      Future.delayed(const Duration(seconds: 3), () {});
       vers = suraline;
     });
   }

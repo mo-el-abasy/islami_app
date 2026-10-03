@@ -1,8 +1,8 @@
 class quranresorce {
   static List<String> arabicQuranSuraList = [
     "الفاتحه",
-    "البقره"
-        "آل عمران",
+    "البقره",
+    "آل عمران",
     "النساء",
     "المائدة",
     "الأنعام",

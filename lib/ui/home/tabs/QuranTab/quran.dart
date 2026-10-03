@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/ui/home/tabs/QuranTab/SuraItem.dart';
+import 'package:islami_app/ui/home/tabs/QuranTab/most_resently_widget.dart';
+import 'package:islami_app/ui/home/tabs/QuranTab/quranresorce.dart';
 import 'package:islami_app/utils/AppStyle.dart';
 import 'package:islami_app/utils/App_color.dart';
 import 'package:islami_app/utils/App_route.dart';
 import 'package:islami_app/utils/Appassets.dart';
+import 'package:islami_app/utils/shared_pres_helper.dart';
 
-class qurantab extends StatelessWidget {
-  const qurantab({super.key});
+class qurantab extends StatefulWidget {
+  qurantab({super.key});
 
+  @override
+  State<qurantab> createState() => _qurantabState();
+}
+
+class _qurantabState extends State<qurantab> {
+  List<int> filterlist = List.generate(114, (index) => index);
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -18,6 +27,7 @@ class qurantab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextField(
+            style: AppStyle.bold20primary,
             decoration: InputDecoration(
               enabledBorder: buildtextfeild(),
               focusedBorder: buildtextfeild(),
@@ -25,80 +35,45 @@ class qurantab extends StatelessWidget {
               hintText: "sura Name",
               hintStyle: AppStyle.bold16white,
             ),
+            onChanged: (newtext) {
+              searchbynewtext(newtext);
+            },
             cursorColor: App_Color.primarycolor,
           ),
           SizedBox(height: height * 0.03),
-          Text(
-            "Most Recently ",
-            style: AppStyle.bold16white,
-          ),
-          SizedBox(height: height * 0.02),
-          SizedBox(
-            height: height * 0.18,
-            child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Container(
-                    padding: EdgeInsets.symmetric(horizontal: width * 0.04),
-                    decoration: BoxDecoration(
-                      color: App_Color.primarycolor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Al-Anbiya",
-                              style: AppStyle.bold24black,
-                            ),
-                            Text(
-                              "الأنبياء",
-                              style: AppStyle.bold24black,
-                            ),
-                            Text(
-                              "112 Verses ",
-                              style: AppStyle.bold16black,
-                            ),
-                          ],
-                        ),
-                        Image.asset(Appassets.mostrecently),
-                      ],
-                    ),
-                  );
-                },
-                separatorBuilder: (context, index) =>
-                    SizedBox(width: width * 0.02),
-                itemCount: 10),
-          ),
-          SizedBox(height: height * 0.02),
+          most_recently_widget(),
           Text(
             "Suras List",
             style: AppStyle.bold16white,
           ),
           Expanded(
-            child: ListView.separated(
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      Navigator.of(context).pushNamed(
-                          App_route.Suradetailsscreen,
-                          arguments: index);
-                    },
-                    child: Suraitem(
-                      index: index,
+            child: filterlist.isEmpty
+                ? Center(
+                    child: Text(
+                      "not sura found",
+                      style: AppStyle.bold20primary,
                     ),
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return Divider(
-                    color: App_Color.whitecolor,
-                    endIndent: width * 0.10,
-                    indent: width * 0.10,
-                  );
-                },
-                itemCount: 114),
+                  )
+                : ListView.separated(
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          saveLastSuraIndex(filterlist[index]);
+                          Navigator.of(context).pushNamed(
+                              App_route.Suradetailsscreen,
+                              arguments: filterlist[index]);
+                        },
+                        child: Suraitem(index: filterlist[index]),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return Divider(
+                        color: App_Color.whitecolor,
+                        endIndent: width * 0.10,
+                        indent: width * 0.10,
+                      );
+                    },
+                    itemCount: filterlist.length),
           ),
         ],
       ),
@@ -113,5 +88,22 @@ class qurantab extends StatelessWidget {
         width: 2,
       ),
     );
+  }
+
+  void searchbynewtext(String newtext) {
+    //دى معموله عشان احط فيهت نتيجه البحث الى عندى
+    List<int> searchresultlist = [];
+    for (int i = 0; i < quranresorce.englishQuranSuraList.length; i++) {
+      if (quranresorce.englishQuranSuraList[i]
+          .toLowerCase()
+          .contains(newtext.toLowerCase())) {
+        searchresultlist.add(i);
+      }
+      if (quranresorce.arabicQuranSuraList[i].contains(newtext)) {
+        searchresultlist.add(i);
+      }
+    }
+    filterlist = searchresultlist;
+    setState(() {});
   }
 }

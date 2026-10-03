@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/provider/most_recent_provider.dart';
 import 'package:islami_app/ui/home/IntrodacctionScreen.dart';
 import 'package:islami_app/ui/home/homescreen.dart';
-import 'package:islami_app/ui/home/splach_screen.dart';
 import 'package:islami_app/ui/home/tabs/QuranTab/SuraDetailsScreen.dart';
 import 'package:islami_app/utils/AppThem.dart';
 import 'package:islami_app/utils/App_route.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => mostRecentPorvider(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,10 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: App_route.splashscreen,
+      initialRoute: App_route.Introdacctionscreen,
       routes: {
         App_route.Introdacctionscreen: (context) => Introdacctionscreen(),
-        App_route.splashscreen: (context) => SplashScreen(),
         App_route.homescreen: (context) => homescreen(),
         App_route.Suradetailsscreen: (context) => Suradetailsscreen(),
       },

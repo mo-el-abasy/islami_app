@@ -1,10 +1,10 @@
 class Appassets {
   static const String logobg = "assets/images/logobg.png";
-  static const String image1 = "assets/images/image1.png";
-  static const String image2 = "assets/images/image2.png";
-  static const String image3 = "assets/images/image3.png";
-  static const String image4 = "assets/images/image4.png";
-  static const String img = "assets/images/img.png";
+  static const String introWelcome = "assets/images/introWelcome.png";
+  static const String introCommunity = "assets/images/introCommunity.png";
+  static const String introQuran = "assets/images/introQuran.png";
+  static const String introSebha = "assets/images/introSebha.png";
+  static const String introRadio = "assets/images/introRadio.png";
   static const String quranbg = "assets/images/quranbg.png";
   static const String quran = "assets/images/quran.png";
   static const String hadeth = "assets/images/hadeth.png";
@@ -19,4 +19,11 @@ class Appassets {
   static const String mostrecently = "assets/images/mostrecently.png";
   static const String suraitem = "assets/images/suraitem.png";
   static const String background = "assets/images/background.png";
+  static const String hadethleftcornar = "assets/images/hadethleftcornar.png";
+  static const String hadetrighttcornar = "assets/images/hadethcornerright.png";
+  static const String hadethmosqo = "assets/images/hadethmosqo.png";
+  static const String sebha1 = "assets/images/sebha1.png";
+  static const String hand = "assets/images/hand.png";
+  static const String splashscreen = "assets/images/splashscreen.png";
+  static const String branding = "assets/images/branding.png";
 }

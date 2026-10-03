@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/utils/AppStyle.dart';
-import 'package:islami_app/utils/App_color.dart';
 
 class suracontent extends StatelessWidget {
   final String content;
@@ -12,21 +11,11 @@ class suracontent extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: width * 0.06),
-      padding: EdgeInsets.symmetric(vertical: height * 0.02),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          border: Border.all(
-            color: App_Color.primarycolor,
-            width: 1,
-          )),
-      child: Text(
-        '$content[${index + 1}]',
-        textDirection: TextDirection.rtl,
-        style: AppStyle.bold20primary,
-        textAlign: TextAlign.center,
-      ),
+    return Text(
+      '$content[${index + 1}]',
+      textDirection: TextDirection.rtl,
+      style: AppStyle.bold20primary,
+      textAlign: TextAlign.center,
     );
   }
 }

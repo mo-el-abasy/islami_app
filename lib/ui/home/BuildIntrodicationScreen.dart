@@ -2,35 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/utils/App_color.dart';
 
 class Buildintrodicationscreen extends StatelessWidget {
-  String tittle;
-  String image;
-  String descrption;
-  double imageheight;
-  Color textcolor;
-  double topspace;
-  double imagetotittle;
-  double tittletodesc;
-
-  Buildintrodicationscreen(
-      {required this.image,
-      required this.tittle,
-      required this.descrption,
-      required this.textcolor,
-      required this.imageheight,
-      required this.topspace,
-      required this.imagetotittle,
-      required this.tittletodesc});
+  final String tittle;
+  final String image;
+  final String? descrption;
+  final double imageTitleSpace;
+  Buildintrodicationscreen({
+    required this.image,
+    required this.tittle,
+    required this.imageTitleSpace,
+    this.descrption,
+  });
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        SizedBox(height: topspace),
         Image.asset(
           image,
-          height: imageheight,
+          height: height * 0.33,
         ),
-        SizedBox(height: imagetotittle),
+        SizedBox(height: height * imageTitleSpace),
         Text(
           tittle,
           textAlign: TextAlign.center,
@@ -39,13 +31,16 @@ class Buildintrodicationscreen extends StatelessWidget {
               fontSize: 24,
               fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: tittletodesc),
-        Text(
-          descrption,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              color: textcolor, fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+        SizedBox(height: height * 0.02),
+        if (descrption != null)
+          Text(
+            descrption!,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: App_Color.primarycolor,
+                fontSize: 20,
+                fontWeight: FontWeight.bold),
+          ),
       ],
     );
   }

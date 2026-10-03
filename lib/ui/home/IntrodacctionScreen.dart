@@ -22,73 +22,52 @@ class _IntrodacctionscreenState extends State<Introdacctionscreen> {
         PageViewModel(
           titleWidget: Image.asset(Appassets.logobg),
           bodyWidget: Buildintrodicationscreen(
-            topspace: 10,
-            image: Appassets.image1,
-            imagetotittle: 100,
-            tittle: "Welcome To Islmi App",
-            tittletodesc: 1,
-            descrption: "",
-            imageheight: MediaQuery.of(context).size.height * 0.35,
-            textcolor: App_Color.primarycolor,
+            image: Appassets.introWelcome,
+            imageTitleSpace: 0.10,
+            tittle: "Welcome To Islmic App",
           ),
         ),
         PageViewModel(
           titleWidget: Image.asset(Appassets.logobg),
           bodyWidget: Buildintrodicationscreen(
-            topspace: 15,
-            image: Appassets.image2,
-            imagetotittle: 30,
+            image: Appassets.introCommunity,
+            imageTitleSpace: 0.04,
             tittle: "Welcome To Islmi App",
-            tittletodesc: 25,
             descrption: "We Are Very Excited To Have You In Our Community",
-            imageheight: MediaQuery.of(context).size.height * 0.35,
-            textcolor: App_Color.primarycolor,
           ),
         ),
         PageViewModel(
           titleWidget: Image.asset(Appassets.logobg),
           bodyWidget: Buildintrodicationscreen(
-            topspace: 15,
-            image: Appassets.image3,
-            imagetotittle: 30,
+            image: Appassets.introQuran,
+            imageTitleSpace: 0.04,
             tittle: "Reading the Quran",
-            tittletodesc: 25,
             descrption: "Read, and your Lord is the Most Generous",
-            imageheight: MediaQuery.of(context).size.height * 0.35,
-            textcolor: App_Color.primarycolor,
           ),
         ),
         PageViewModel(
           titleWidget: Image.asset(Appassets.logobg),
           bodyWidget: Buildintrodicationscreen(
-            topspace: 15,
-            image: Appassets.img,
-            imagetotittle: 30,
+            image: Appassets.introSebha,
+            imageTitleSpace: 0.04,
             tittle: "Bearish",
-            tittletodesc: 25,
             descrption: "Praise the name of your Lord, the Most High",
-            imageheight: MediaQuery.of(context).size.height * 0.35,
-            textcolor: App_Color.primarycolor,
           ),
         ),
         PageViewModel(
           titleWidget: Image.asset(Appassets.logobg),
           bodyWidget: Buildintrodicationscreen(
-            topspace: 15,
-            image: Appassets.image4,
-            imagetotittle: 28,
+            image: Appassets.introRadio,
+            imageTitleSpace: 0.04,
             tittle: "Holy Quran Radio",
-            tittletodesc: 19,
             descrption:
                 "You can listen to the Holy Quran Radio through the application for free and easily",
-            imageheight: MediaQuery.of(context).size.height * 0.35,
-            textcolor: App_Color.primarycolor,
           ),
         ),
       ],
-      onChange: (pageIndex) {
+      onChange: (index) {
         setState(() {
-          currentpage = pageIndex;
+          currentpage = index;
         });
       },
       onDone: () {
